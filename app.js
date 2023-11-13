@@ -1,10 +1,13 @@
 window.addEventListener('load', function() {
     let searchBtn = document.querySelector("#searchBtn");
+    let resultsDiv = document.querySelector("#results");
     
     searchBtn.addEventListener('click',function(event) {
         event.preventDefault();
+        
+        let searchVal = document.querySelector("#searchVal").value.trim();
 
-        fetch("superheroes.php")
+        fetch(`superheroes.php?query=${searchVal}`)
             .then(response =>{
                 if (response.ok) {
                     return response.text()
@@ -13,9 +16,12 @@ window.addEventListener('load', function() {
                 }
             })
             .then(data => {
-                alert (data);
+                resultsDiv.innerHTML = data;
+
             })
-            .catch(error => alert('There was an error' + error));
+            .catch(error => alert(error));
 
     });
+
+    
 });

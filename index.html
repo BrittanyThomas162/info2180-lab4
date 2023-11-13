@@ -8,9 +8,35 @@
     <script src="app.js"></script>
   </head>
   <body>
-    <div class="container">
-      <h1>Avengers Character Search</h1>
-      <button type="submit" id="searchBtn" class="btn">Search</button>
-    </div>
+    <header>
+      <div class="container">
+        <h1>Avengers Character Search</h1>
+      </div>
+    </header>
+    <main>
+      <section class="search-form">
+        <div class="container">
+          <form action="superheroes.php" method="post">
+            <label for="searchVal">Search by Full Name or Alias</label>
+            <div>
+              <input
+                type="text"
+                name="searchVal"
+                id="searchVal"
+                placeholder="e.g. Captain America or Steve Rogers"
+              />
+              <button type="submit" id="searchBtn" class="btn">Search</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="search-results">
+        <div class="container">
+          <h2>Result</h2>
+          <hr />
+          <div id="results"></div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
